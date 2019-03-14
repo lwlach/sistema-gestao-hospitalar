@@ -2,7 +2,7 @@
 
 ## Requisitos
 
-### Ojetivo
+### Objetivo
 
 ### Contextualização
 
