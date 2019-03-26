@@ -3,37 +3,41 @@ package br.com.codenation.hospital.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
+import lombok.Data;
+
+@Data
 @Entity
 public class Produto {
 
     @Id
     @GeneratedValue
-    private long id;
+    private Long id;
 
     @NotBlank(message = "Nome é obrigatório!")
     private String nome;
 
     private String descricao;
 
-    @NotBlank(message = "Quantidade é obrigatória!")
-    private int quantidade;
+    @NotNull(message = "Quantidade é obrigatória!")
+    private Integer quantidade;
 
-    public Produto() {}
+    public Produto() {
+    }
 
-    public Produto(String nome, String descricao, int quantidade) {
+    public Produto(String nome, String descricao, Integer quantidade) {
         this.nome = nome;
         this.descricao = descricao;
         this.quantidade = quantidade;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -53,11 +57,11 @@ public class Produto {
         this.descricao = descricao;
     }
 
-    public int getQuantidade() {
+    public Integer getQuantidade() {
         return quantidade;
     }
 
-    public void setQuantidade(int quantidade) {
+    public void setQuantidade(Integer quantidade) {
         this.quantidade = quantidade;
     }
 }
