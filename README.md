@@ -33,7 +33,7 @@ Um estoque tem produtos e suas respectivas quantidades.
 Dentro do estoque também tem banco de sangue
 O hospital também possui leitos.
 Ao encontrar um paciente é importante o recomendar para um hospital mais próximo e que tenha vaga disponível.
-Caso o hospital precise de um produto, por exemplo, um banco de sangue, é importante fazer o envio do hospital mais próximo ao local.
+Caso o hospital precise de um estoque, por exemplo, um banco de sangue, é importante fazer o envio do hospital mais próximo ao local.
 Caso o hospital tenha apenas 4 itens ou 4 litros ele terá apenas o suficiente para o próprio hospital.
 
 A partir da API que gerencia os hospitais dentro do SUS o usuário conseguirá, por exemplo:
@@ -58,9 +58,9 @@ Método: GET Retorna as informações do hospital, por exemplo:
 
 Método: GET Retorna as informações dos produtos existentes estoque, por exemplo.
 
-/v1/hospitais/{id}/estoque/{produto}
+/v1/hospitais/{id}/estoque/{estoque}
 
-Método: GET Retorna mais detalhes de um produto.
+Método: GET Retorna mais detalhes de um estoque.
 
 * Nome
 * Descrição

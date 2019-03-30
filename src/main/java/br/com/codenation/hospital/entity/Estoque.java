@@ -1,43 +1,77 @@
 package br.com.codenation.hospital.entity;
 
-
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
-//@Entity
+import lombok.Data;
+
+@Data
+@Entity
+@Table(name = "estoque")
 public class Estoque {
 
     @Id
     @GeneratedValue
-    private long id;
+    @Column(name = "id")
+    private Long id;
 
-    private List<Produto> produtos;
+    private String nome;
+
+    private String descricao;
+
+    private Integer quantidade;
+
+    @ManyToOne(optional = false)
+    private Hospital hospital;
 
     public Estoque() {
-        this.produtos = new ArrayList<>();
     }
 
-    public long getId() {
+    public Estoque(String nome, String descricao, Integer quantidade, Hospital hospital) {
+        this.nome = nome;
+        this.descricao = descricao;
+        this.quantidade = quantidade;
+        this.hospital = hospital;
+    }
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public void addProduto(Produto produto){
-        this.produtos.add(produto);
+    public String getNome() {
+        return nome;
     }
 
-    public void removeProduto(Produto produto){
-        this.produtos.remove(produto);
+    public void setNome(String nome) {
+        this.nome = nome;
     }
 
-    public List<Produto> getProdutos() {
-        return Collections.unmodifiableList(produtos);
+    public String getDescricao() {
+        return descricao;
     }
 
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public Integer getQuantidade() {
+        return quantidade;
+    }
+
+    public void setQuantidade(Integer quantidade) {
+        this.quantidade = quantidade;
+    }
+
+    public Hospital getHospital() {
+        return hospital;
+    }
+
+    public void setHospital(Hospital hospital) {
+        this.hospital = hospital;
+    }
 }
